@@ -21,6 +21,7 @@ var letterConversion = {
 	"J": 9
 }
 
+var letterArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 // makes the grid columns and rows
 for (i = 0; i < cols; i++) {
 	for (j = 0; j < rows; j++) {
@@ -34,6 +35,7 @@ for (i = 0; i < cols; i++) {
 		square.className = "boardSquare";
 
 		// THIS IS WHERE YOU WILL ADD CODE FOR PART 1 TO ADD TEXT TO EACH SQUARE
+		square.textContent =letterArray[j] + (i + 1);
 
 		// set each grid square's coordinates: multiples of the current row or column number
 		var topPosition = j * squareSize;
@@ -61,6 +63,23 @@ var gameBoard = [
 
 function fireTorpedo() {
 
-	// Your game logic will go here!
+var userInput = $("#exampleInput").val();
+var rowLetter = userInput.substring(0,1);
+var column = userInput.substring(1,2) - 1;
 
+var row = letterConversion[rowLetter];
+
+var battleshipGuess = gameBoard[row][column];
+var myDivString = "#s" + row + column;
+
+console.log("battleshipGuess is " + battleshipGuess);
+console.log("myDivString is " + myDivString);
+
+if (battleshipGuess == 1) {
+	var myDivString = "#s" + row + column;
+	$(myDivString).css("background-color", "red");
+}
+else  {
+var hitCount = 0; 
+}
 }
