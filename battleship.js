@@ -2,6 +2,7 @@
 var rows = 10;
 var cols = 10;
 var squareSize = 50;
+var hitCount = 0;
 
 // gets the container element
 var gameBoardContainer = document.getElementById("gameboard");
@@ -76,10 +77,15 @@ console.log("battleshipGuess is " + battleshipGuess);
 console.log("myDivString is " + myDivString);
 
 if (battleshipGuess == 1) {
-	var myDivString = "#s" + row + column;
 	$(myDivString).css("background-color", "red");
+	hitCount = hitCount + 1;
 }
 else  {
-var hitCount = 0; 
+	$(myDivString).css("background-color", "grey");
 }
+
+if (hitCount == 2) {
+	$("#instructions").text("YOU SUNK ALL MY BATTLESHIPS!");
+}
+
 }
